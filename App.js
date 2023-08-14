@@ -21,6 +21,12 @@ function App() {
     clearInterval(timer);
   };
 
+  const stopTimer = () => {
+    setTime(0);
+    clearInterval(timer);
+    setTimer(null);
+  };
+
   return (
     <View style={styles.app}>
       <Text>Timer: {time}</Text>
@@ -33,11 +39,7 @@ function App() {
         </Pressable>
       )}
       <Pressable
-        onPress={() => {
-          setTime(0);
-          clearInterval(timer);
-          setTimer(null);
-        }}
+        onPress={() => stopTimer()}
         style={styles.style}>
         <Text style={styles.text}>STOP</Text>
       </Pressable>
